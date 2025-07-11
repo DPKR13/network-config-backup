@@ -1,0 +1,57 @@
+# devices.example.yaml - Example Configuration File
+#
+# This file serves as a template for your 'devices.yaml' file.
+# To run the script, copy this file to 'devices.yaml' in the same directory
+# and replace the placeholder values with your actual device credentials and IP addresses.
+#
+# IMPORTANT: Do NOT commit your 'devices.yaml' file (which contains real credentials)
+# to your public GitHub repository. The '.gitignore' file is configured to ignore it.
+
+groups:
+  - name: ExampleCiscoSwitches1
+    device_type: cisco_ios
+    username: your_cisco_username_1_placeholder
+    password: your_cisco_password_1_placeholder
+    port: 22 # Optional, default is 22
+    global_delay_factor: 2 # Optional, default is 2
+    max_retries: 3 # Optional, default is 3
+    retry_delay: 5 # Optional, default is 5 seconds
+    filename_format: "{hostname}_cisco1_backup_{timestamp}.txt" # Optional, default is "config_backup_{hostname}_{ip}.txt"
+    hosts:
+      - 192.168.1.10 # Example IP
+      - 192.168.1.11 # Example IP
+    optional_args:
+      secret: your_enable_password_1_placeholder # Use this if your Cisco devices require an enable password
+
+  - name: ExampleJuniperRouters1
+    device_type: juniper_junos
+    username: your_juniper_username_1_placeholder
+    password: your_juniper_password_1_placeholder
+    hosts:
+      - 10.0.0.1 # Example IP
+      - 10.0.0.2 # Example IP
+    filename_format: "{hostname}_juniper1_backup_{timestamp}.txt" # Optional, default is "config_backup_{hostname}_{ip}.txt"
+
+  - name: ExampleCiscoSwitches2
+    device_type: cisco_ios
+    username: your_cisco_username_2_placeholder
+    password: your_cisco_password_2_placeholder
+    port: 22 # Optional, default is 22
+    global_delay_factor: 3 # Different delay factor
+    max_retries: 2 # Different retry settings
+    retry_delay: 10 # Different retry settings
+    filename_format: "{hostname}_cisco2_backup_{timestamp}.txt"
+    hosts:
+      - 192.168.1.20 # Another Example IP
+      - 192.168.1.21 # Another Example IP
+    optional_args:
+      secret: your_enable_password_2_placeholder
+
+  - name: ExampleJuniperRouters2
+    device_type: juniper_junos
+    username: your_juniper_username_2_placeholder
+    password: your_juniper_password_2_placeholder
+    hosts:
+      - 10.0.0.10 # Another Example IP
+      - 10.0.0.11 # Another Example IP
+    filename_format: "{hostname}_juniper2_backup_{timestamp}.txt"
