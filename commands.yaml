@@ -1,0 +1,11 @@
+# commands.yaml
+juniper_junos:
+  - show configuration | display set
+  - show interfaces terse
+  - show version
+  - show chassis hardware
+cisco_ios:
+  - show running-config
+  - show ip interface brief
+  - show version
+  - show cdp neighbors detail
